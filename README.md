@@ -135,3 +135,27 @@ python src/exploration/build_eda_assets.py \
 	--max-rows 300000 \
 	--sample-rows 5000
 ```
+
+## Interactive exploration dashboard
+
+Launch the app:
+
+```bash
+streamlit run src/exploration/dashboard_app.py
+```
+
+In the sidebar, you can:
+- use an existing sample CSV (default: `data/exploration/sample_preview.csv`)
+- or build/refresh a sample directly from the raw file in chunks
+
+Interactive controls include:
+- species multiselect
+- state multiselect
+- date-range slider
+
+Dashboard views include:
+- monthly sightings trend
+- top species bar chart
+- state-by-month heatmap
+- map of sighting locations
+- filtered table + CSV download
