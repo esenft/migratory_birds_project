@@ -102,3 +102,36 @@ python src/features/state_arrival_lag.py \
 This outputs per-species, per-year lag features including:
 - `lag_days_source_to_target`
 - `lag_weeks_source_to_target`
+
+## Quick visualization and exploration for very large files
+
+If the full file is too large to inspect directly, build a compact EDA bundle from a streamed subset.
+
+Run:
+
+```bash
+python src/exploration/build_eda_assets.py \
+	--file-path data/raw/bird_sightings.csv \
+	--output-dir data/exploration \
+	--max-rows 2000000 \
+	--sample-rows 20000
+```
+
+This creates:
+- `data/exploration/summary.json` with top species, states, years, and months
+- `data/exploration/sample_preview.csv` for easy manual inspection
+- plots in `data/exploration/plots/`:
+	- `top_species.png`
+	- `top_states.png`
+	- `by_year.png`
+	- `by_month.png`
+
+You can start smaller for quick iteration:
+
+```bash
+python src/exploration/build_eda_assets.py \
+	--file-path data/raw/bird_sightings.csv \
+	--output-dir data/exploration_small \
+	--max-rows 300000 \
+	--sample-rows 5000
+```
