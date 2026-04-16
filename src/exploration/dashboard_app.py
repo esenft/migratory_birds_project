@@ -6,7 +6,11 @@ streamlit run src/exploration/dashboard_app.py
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
+
+# Add workspace root to sys.path for imports to work with streamlit
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 import pandas as pd
 import plotly.express as px
